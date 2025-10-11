@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'org.videolan.java_sample'
+    compileSdkVersion 33
+    sourceSets {
+        main {
+            jni.srcDirs = []
+            // Prevent gradle from building native code with ndk; we have our own Makefile for it.
+            jniLibs.srcDir 'jni/libs' // Where generated .so files are placed
+            assets.srcDirs = ['src/main/assets', '../assets/']
+        }
+    }
+    defaultConfig {
+        applicationId 'org.videolan.java_sample'
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(':libvlc')
+}

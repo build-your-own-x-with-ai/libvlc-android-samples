@@ -1,0 +1,1 @@
+include ':native_sample', ':java_sample', ':compose_sample', ':libvlc'
