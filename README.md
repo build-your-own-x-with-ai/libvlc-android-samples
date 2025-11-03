@@ -162,7 +162,7 @@ Example of using LibVLC with native code (JNI).
 
 1. 克隆仓库：
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/build-your-own-x-with-ai/libvlc-android-samples
    cd libvlc
    ```
 
